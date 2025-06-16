@@ -1,0 +1,770 @@
+/* ძირითადი სტილები */
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f1a;
+  color: #e0e0f0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+/* კონტეინერი */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+/* ჰედერის კონტეინერი */
+
+
+/* ჰედერის შიდა კონტეინერი */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%; /* 80px სიმაღლე */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* ლოგო */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 70px;
+  width: auto;
+  margin-right: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-img:hover {
+  transform: scale(1.08);
+}
+
+/* ნავიგაცია - დესკტოპზე */
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.nav a:hover {
+  color: #ff00cc;
+}
+
+/* ბურგერი - დამალულია დესკტოპზე */
+.burger {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: white;
+  display: none;
+  cursor: pointer;
+  z-index: 11000;
+}
+
+/* მობილური სტილი */
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  /* fullscreen მენიუ მარცხნიდან */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #8e2de2, #ff00cc);
+    flex-direction: column;
+    padding: 80px 30px 30px 30px;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    z-index: 10000;
+  }
+
+  .nav a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 20px 0;
+  }
+
+  .nav a:hover {
+    color: #ffe3ff;
+  }
+
+  .nav.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Active ლინკი */
+.nav a.active {
+  color: #b388ff;
+  font-weight: 700;
+  border-bottom: 2px solid #b388ff;
+}
+
+/* იუთუბის ლინკი და იკონკა */
+.youtube-link {
+  margin-left: 20px;
+}
+
+.youtube-icon {
+  width: 24px;
+  height: 24px;
+  fill: #ff0000;
+  transition: fill 0.3s;
+}
+
+/* Main Content */
+.main-content {
+  flex: 0 0 auto; /* არ იწელება და არ იკავებს ზედმეტ სივრცეს */
+  padding: 40px 20px;
+  text-align: center;
+  background: rgb(15, 15, 26);
+  color: rgb(180, 140, 255);
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(180, 140, 255, 0.5);
+}
+
+/* Sidebar Card */
+.sidebar-card {
+  background: #1a0a42;
+  border: 2px solid #b388ff;
+  border-radius: 15px;
+  padding: 20px;
+  color: #b388ff;
+  box-shadow:
+    0 0 10px #b388ff,
+    0 0 20px #7b49ff,
+    0 0 30px #b388ff;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.sidebar-card:hover {
+  box-shadow:
+    0 0 20px #ff00cc,
+    0 0 40px #ff66cc,
+    0 0 60px #ff00cc;
+}
+
+.sidebar-card h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.btn-live {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 25px;
+  background: #ff00cc;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 25px;
+  box-shadow: 0 0 15px #ff00cc;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn-live:hover {
+  background: #cc0099;
+  box-shadow: 0 0 25px #ff66cc;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: auto; /* ფუთერი ყოველთვის ქვემოთ */
+  background-color: #1a1a2e;
+  color: #ccc;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 14px;
+}
+
+.site-footer a {
+  color: #b388ff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ------------ */
+
+.games-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.games-section h2 {
+  color: #ff66cc;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.game-card {
+  background: #1a0a42;
+  border: 2px solid #b388ff;
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 0 10px #b388ff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #ff00cc;
+}
+
+.game-card img {
+  width: 100%;
+  height: 220px; /* გაზრდილი სიმაღლე */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.game-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #b388ff;
+}
+
+.btn-details {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff00cc;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-details:hover {
+  background: #cc0099;
+}
+
+/* Contact Container */
+.contact-container {
+  background: #1a0a42;
+  padding: 40px 60px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #b388ff;
+  width: 100%;
+  height: 100vh; /* მთლიანი ეკრანის სიმაღლე */
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ვერტიკალური ცენტრი */
+  align-items: center;     /* ჰორიზონტალური ცენტრი */
+
+  text-align: center;
+}
+
+.contact-container h1 {
+  margin-bottom: 20px;
+  color: #ff66cc;
+}
+
+.contact-container p {
+  font-size: 1.1rem;
+  margin: 15px 0;
+}
+
+.contact-container a {
+  color: #ff00cc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.contact-container a:hover {
+  color: #cc0099;
+  text-decoration: underline;
+}
+
+/* Detail გვერდის კონტეინერი */
+/* დეტალების გვერდის მთავარი სექცია */
+.game-details-full {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.game-details-full h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #ff66cc;
+  text-align: center;
+}
+/* ვიდეო კონტეინერი */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  margin-bottom: 30px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* თვითონ ვიდეო */
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* სხვა სტილები შენ შენარჩუნებული გაქვს */
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.responsive-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.desc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.info p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 40px;
+}
+
+.features-list li {
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #ff66cc;
+  color: #e5e5e5;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-details {
+  background-color: #ff00cc;
+  color: white;
+  padding: 10px 24px;
+  font-size: 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-details:hover {
+  background-color: #cc0099;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 768px) {
+  .game-details-full {
+    padding: 0 15px;
+  }
+
+  .game-details-full h1 {
+    font-size: 2rem;
+  }
+
+  .desc {
+    font-size: 1rem;
+  }
+
+  .info p {
+    font-size: 0.95rem;
+  }
+
+  .btn-details {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-details-full h1 {
+    font-size: 1.6rem;
+  }
+
+  .desc {
+    font-size: 0.95rem;
+  }
+
+  .features-list li {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .btn-details {
+    width: 100%;
+    text-align: center;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+/* ტურნირების ფორმა */
+#tournamentForm {
+  background: #220c5a; /* უფრო ღრმა იასიამნისფერი */
+  padding: 32px 40px;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(179, 136, 255, 0.5);
+  max-width: 420px;
+  margin: 40px auto;
+  color: #e6e6fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+}
+
+#tournamentForm:hover {
+  box-shadow: 0 6px 30px rgba(255, 102, 204, 0.7);
+}
+
+#tournamentForm label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 1.15rem;
+  color: #ff99d9; /* თბილი იასიამნისფერი ტონით */
+}
+
+#tournamentForm input[type="text"],
+#tournamentForm input[type="email"],
+#tournamentForm input[type="tel"],
+#tournamentForm select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1.8px solid #b388ff;
+  background-color: #3c2991; /* მსუბუქად ნათელი ფონზე */
+  color: #f0e6ff;
+  font-size: 1rem;
+  margin-top: 6px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.3);
+}
+
+#tournamentForm input[type="text"]:focus,
+#tournamentForm input[type="email"]:focus,
+#tournamentForm input[type="tel"]:focus,
+#tournamentForm select:focus {
+  outline: none;
+  border-color: #ff66cc;
+  background-color: #4a36b8;
+  box-shadow: 0 0 8px #ff66cc;
+}
+
+#tournamentForm button[type="submit"] {
+  margin-top: 26px;
+  width: 100%;
+  background: linear-gradient(135deg, #ff00cc, #b388ff);
+  color: white;
+  font-weight: 700;
+  padding: 14px 0;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff00cc;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+#tournamentForm button[type="submit"]:hover {
+  background: linear-gradient(135deg, #cc0099, #8a5dcf);
+  box-shadow: 0 0 30px #ff99d9;
+}
+
+/* ტურნირების სია */
+.tournament-list {
+  display: grid;
+  gap: 26px;
+  margin-top: 28px;
+  padding: 0 12px;
+}
+
+.tournament-card {
+  background: linear-gradient(135deg, #b84eff, #ff69b4); /* იასამნისფერი ვარდისფერში */
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  border: 2px solid #e0aaff;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5); /* ვარდისფერი ჩრდილი */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tournament-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  animation: shimmer 6s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.tournament-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+}
+
+.tournament-card h2 {
+  margin: 0 0 12px;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #ffe6ff; /* ღია იასამნისფერი ტექსტი */
+}
+
+.tournament-card p {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.tournament-card a {
+  color: #ffd1f7;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dashed #ffd1f7;
+  transition: color 0.2s ease;
+}
+
+.tournament-card a:hover {
+  color: #ffffff;
+  border-bottom: 1px solid #fff;
+}
+
+/* გამორჩეული სექცია */
+.featured-section {
+  padding: 50px 20px;
+  background-color: #7b49ff;
+  text-align: center;
+}
+
+.featured-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #a000c0;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.featured-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 16px rgba(184, 78, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.featured-card:hover {
+  transform: scale(1.03) rotateY(3deg);
+  box-shadow: 0 12px 24px rgba(255, 105, 180, 0.4);
+}
+
+.featured-card h3 {
+  color: #ff69b4;
+  margin-bottom: 12px;
+}
+
+.featured-card p {
+  color: #444;
+  font-size: 1em;
+}
+
+.featured-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #b84eff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.featured-card a:hover {
+  text-decoration: underline;
+}
+
+.content-wrapper {
+    max-width: 600px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3a0ca3; /* მუქი იასამნისფერი ტექსტისთვის */
+  }
+
+  .leaderboard-section {
+    background: linear-gradient(135deg, #f4c2c2, #dab6fc); /* ვარდისფერი იასამნისფერი გადადება */
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(219, 112, 147, 0.4);
+  }
+
+  .leaderboard-section > h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #7b2ff7; /* იასამნისფერი */
+    text-shadow: 0 0 8px #dba0f7;
+  }
+
+  .leaderboard {
+    background: rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(123, 47, 247, 0.3);
+  }
+
+  .leaderboard h3 {
+    margin-bottom: 12px;
+    color: #9f79ee; /* თბილი იასამნისფერი */
+    border-bottom: 2px solid #dba0f7;
+    padding-bottom: 5px;
+    font-weight: 600;
+  }
+
+  .leaderboard ul {
+    list-style-type: none;
+    padding-left: 15px;
+  }
+
+  .leaderboard ul li {
+    padding: 6px 0;
+    border-bottom: 1px solid #e8d6ff;
+    font-weight: 500;
+    color: #5e4b8b; /* მუქი ლავანდა */
+  }
+
+  .leaderboard ul li:last-child {
+    border-bottom: none;
+  }  
+
+
+  .SABA {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.SABA12 {
+  display: inline-block;
+  background-color: #ff00cc;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(255, 0, 204, 0.3);
+}
+
+.SABA12:hover {
+  background-color: #cc0099;
+  transform: translateY(-2px);
+}
